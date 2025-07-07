@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Pontos RSC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #374151;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .input-field {
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .table-header th {
+            background-color: #e5e7eb;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 1px solid #d1d5db;
+        }
+        .table-row td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .table-row:last-child td {
+            border-bottom: none;
+        }
+        .rsc-level-box {
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .rsc-level-box.met {
+            background-color: #d1fae5; /* green-100 */
+            color: #065f46; /* green-800 */
+            border: 1px solid #34d399; /* green-400 */
+        }
+        .rsc-level-box.not-met {
+            background-color: #fee2e2; /* red-100 */
+            color: #991b1b; /* red-800 */
+            border: 1px solid #f87171; /* red-400 */
+        }
+        @media (max-width: 768px) {
+            .table-header th, .table-row td {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.875rem;
+            }
+            .input-field {
+                padding: 0.4rem 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container">
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Calculadora de Pontos RSC</h1>
+        <p class="text-center text-gray-600 mb-8">Insira a quantidade para cada item de saber e competência para calcular sua pontuação total de RSC.</p>
+
+        <div class="card">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Resumo da Pontuação</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <p class="text-blue-700 font-medium">Pontuação Total Atual:</p>
+                    <p id="total-score" class="text-3xl font-bold text-blue-900 mt-1">0</p>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                    <p class="text-purple-700 font-medium">Itens Contabilizados:</p>
+                    <p id="total-items" class="text-3xl font-bold text-purple-900 mt-1">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Requisitos Mínimos por Nível de RSC</h2>
+            <div id="rsc-levels" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- RSC levels will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <div class="card overflow-x-auto">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Rol de Saberes e Competências</h2>
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="table-header">
+                    <tr>
+                        <th class="rounded-tl-lg">Nº</th>
+                        <th>Saber e Competência</th>
+                        <th>Unidade de Medida</th>
+                        <th>Pontuação por Unidade</th>
+                        <th class="rounded-tr-lg">Quantidade</th>
+                        <th>Pontuação Total</th>
+                    </tr>
+                </thead>
+                <tbody id="rsc-items" class="divide-y divide-gray-200">
+                    <!-- RSC items will be dynamically loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const rscItemsContainer = document.getElementById('rsc-items');
+            const totalScoreElement = document.getElementById('total-score');
+            const totalItemsElement = document.getElementById('total-items');
+            const rscLevelsContainer = document.getElementById('rsc-levels');
+
+            // Data for RSC items from Anexo II
+            const rscData = [
+                { id: 1, saber: "Atuação na área de gestão e/ou fiscalização de contratos, convênios e acordos", unidade: "Tempo (mês)", pontos: 0.1 },
+                { id: 2, saber: "Atuação como suplente na área de gestão e/ou fiscalização de contratos, convênios e acordos", unidade: "Tempo (mês)", pontos: 0.05 },
+                { id: 3, saber: "Atuação em comissões de corregedoria ou correição", unidade: "Por portaria de designação, incluídas as prorrogações", pontos: 2.5 },
+                { id: 4, saber: "Atuação em processo licitatório de aquisição e contratação", unidade: "Por processo licitatório", pontos: 1 },
+                { id: 5, saber: "Desenvolvimento de tecnologias e soluções práticas que tenham impacto institucional", unidade: "Por solução (evento)", pontos: 6.25 },
+                { id: 6, saber: "Elaboração de editais", unidade: "Por edital", pontos: 0.125 },
+                { id: 7, saber: "Elaboração de notas técnicas, chamadas públicas, pareceres técnicos, nota informativa, manuais e roteiros técnicos ou documentação similar", unidade: "Por notas técnicas, chamadas públicas, pareceres técnicos, nota informativa ou documentação similar", pontos: 1.25 },
+                { id: 8, saber: "Elogio profissional", unidade: "Por portaria (evento)", pontos: 1.25 },
+                { id: 9, saber: "Participação como membro de comissão organizadora de processo seletivo, vestibular, concurso ou exames públicos", unidade: "Por Edital (evento)", pontos: 1 },
+                { id: 10, saber: "Participação como membro de comissão responsável por processo seletivo, vestibular, concurso ou exames públicos", unidade: "Por Edital (evento)", pontos: 1 },
+                { id: 11, saber: "Participação como membro em grupos, núcleos e comissões de políticas públicas inclusivas e afirmativas (heteroidentificação, gênero, diversidade, avaliação socioeconômica, PCD, avaliação de cotas)", unidade: "Por declaração ou certificado de participação", pontos: 1 },
+                { id: 12, saber: "Participação como membro em comissões, comitês, grupos de trabalho e grupo de estudos em organizações privadas, entidades profissionais ou organizações da sociedade civil", unidade: "Por declaração/documento oficial de realização da atividade", pontos: 1 },
+                { id: 13, saber: "Participação como membro titular em comissões, comitês e grupos no âmbito da administração pública", unidade: "Por portaria/declaração Comissão /Comitê/GT (evento)", pontos: 1.25 },
+                { id: 14, saber: "Participação como membro suplente em comissões, comitês, grupos previstos no âmbito da administração pública", unidade: "Por portaria/declaração Comissão /Comitê/GT (evento)", pontos: 0.5 },
+                { id: 15, saber: "Participação em brigadas voluntárias de combate a incêndio e pânico e/ou em ações voluntárias", unidade: "Por Ação ou Por participação em Brigada", pontos: 1 },
+                { id: 16, saber: "Participação em comissões de saúde e segurança no trabalho", unidade: "Por mandato/designação. (evento)", pontos: 1 },
+                { id: 17, saber: "Participação em conselhos superiores e órgãos colegiados das IFE", unidade: "Por mandato/designação. (evento)", pontos: 2.5 },
+                { id: 18, saber: "Participação, no exercício do cargo, em Consultorias e Assessoria Técnica Especializada", unidade: "Por consultoria", pontos: 1 },
+                { id: 19, saber: "Participação em programas e políticas públicas externos à instituição", unidade: "Por programas e políticas públicas (evento)", pontos: 1 },
+                { id: 20, saber: "Participação na coordenação/supervisão, fiscalização, logística de preparação e/ou realização de concurso público ou exames públicos", unidade: "Por Edital (evento)", pontos: 0.625 },
+                { id: 21, saber: "Tempo de efetivo exercício na carreira", unidade: "Tempo (mês)", pontos: 0.125 },
+                { id: 22, saber: "Tempo de serviço e/ou vínculo empregatício em outras instituições públicas e/ou privadas", unidade: "Tempo (mês)", pontos: 0.05 },
+                { id: 23, saber: "Trabalho desenvolvido em órgãos estatais e/ou paraestatais, escolas de governo, agências reguladoras, organismo internacionais", unidade: "Ano completo (tempo)", pontos: 0.5 },
+                { id: 24, saber: "Trabalho desenvolvido no âmbito do Ministério da Educação e suas entidades vinculadas (cessão e/ou colaboração técnica)", unidade: "Tempo (mês)", pontos: 0.05 },
+                { id: 25, saber: "Participação como membro da gestão e/ou do conselho fiscal, ou comissão sindical e associações vinculadas às IFE", unidade: "Por mandato (evento)", pontos: 2.5 },
+                { id: 26, saber: "Participação como membro em comissões permanentes e/ou assessorias instituídas por lei", unidade: "Por mandato (evento)", pontos: 2.5 },
+                { id: 27, saber: "Participação como membro de comissão de consulta/eleitoral", unidade: "Por consulta/eleição (evento)", pontos: 1 },
+                { id: 28, saber: "Participação como membro em conselho profissional", unidade: "Mandato (evento)", pontos: 0.5 },
+                { id: 29, saber: "Participação como membro titular e/ou suplente da Comissão Interna de Supervisão da carreira (CIS) e outras comissões correlatas.", unidade: "Por ano de mandato", pontos: 0.5 },
+                { id: 30, saber: "Participação na organização de eventos pedagógicos, educacionais, científicos, tecnológicos, esportivos, sociais, sindical, filantrópicos ou culturais", unidade: "Por certificado / declaração", pontos: 1 },
+                { id: 31, saber: "Representação institucional em conselhos e/ou órgãos municipais, estaduais e federais, organizações sociais, assistenciais e/ou sem fins lucrativos", unidade: "Por portaria/declaração (evento)", pontos: 1 },
+                { id: 32, saber: "Coordenação/presidência de comissões, comitês, grupos de trabalho ou grupo de estudo na administração pública", unidade: "Por portaria/declaração (evento)", pontos: 2.5 },
+                { id: 33, saber: "Atuação do servidor como titular e/ou substituto eventual do titular ocupante de Cargo de Direção (CD) ou equivalente.", unidade: "Tempo (mês)", pontos: 0.25 },
+                { id: 34, saber: "Atuação do servidor como titular e/ou substituto eventual do titular ocupante de Função Gratificada (FG) ou equivalente.", unidade: "Tempo (mês)", pontos: 0.125 },
+                { id: 35, saber: "Responsável por setor, unidade ou equipe", unidade: "Tempo (mês)", pontos: 0.125 },
+                { id: 36, saber: "Proficiência ou curso em LIBRAS e/ou língua estrangeira", unidade: "Por certificação (evento)", pontos: 5 },
+                { id: 37, saber: "Certificação Profissional na área de atuação", unidade: "Por certificação (evento)", pontos: 1.25 },
+                { id: 38, saber: "Participação em capacitações como instrutor ou conteudista em curso de formação, de desenvolvimento ou de treinamento", unidade: "Por curso, independente da carga horária (evento)", pontos: 1 },
+                { id: 39, saber: "Participação em capacitações como tutor, monitor, ou orientador mentor em curso de formação, de desenvolvimento ou de treinamento, incluindo tutoria de estágio probatório", unidade: "Por participação, independente da carga horária (evento)", pontos: 0.5 },
+                { id: 40, saber: "Participação em capacitações, incluindo disciplinas isoladas em cursos de graduação e pós-graduação, que desenvolvam competências alinhadas aos objetivos institucionais e/ou que favoreçam a formação continuada no cargo", unidade: "Por Carga horária (a cada 10 horas)", pontos: 0.25 },
+                { id: 41, saber: "Títulos de educação formal, diferente do requisito de escolaridade e formação especializada exigidos para o ingresso no cargo ocupado pelo servidor", unidade: "Por diploma ou certificado (evento)", pontos: 6.25 },
+                { id: 42, saber: "Autoria de obras artísticas e cultural registradas", unidade: "Por obra artística e cultura", pontos: 2.5 },
+                { id: 43, saber: "Autor de projeto aprovado em edital de pesquisa e/ou extensão.", unidade: "Por edital/Projeto", pontos: 2.5 },
+                { id: 44, saber: "Captação de recursos em projetos de desenvolvimento institucional e/ou ensino e/ou pesquisa e/ou extensão e/ou inovação e/ou gestão e/ou assistência", unidade: "Por edital/Projeto", pontos: 2.5 },
+                { id: 45, saber: "Carta Patente", unidade: "Por patente", pontos: 5 },
+                { id: 46, saber: "Contratos de transferência de tecnologia e licenciamento.", unidade: "Por contrato", pontos: 5 },
+                { id: 47, saber: "Coordenação de acordos ou convênios de cooperação", unidade: "Por acordo / convênio", pontos: 2.5 },
+                { id: 48, saber: "Coordenação de elaboração de Projetos Pedagógicos de novos Cursos.", unidade: "Por projeto", pontos: 2.5 },
+                { id: 49, saber: "Desenvolvimento de projeto gráfico, diagramação ou identidade visual", unidade: "Por projeto", pontos: 1 },
+                { id: 50, saber: "Desenvolvimento de software e sistemas digitais", unidade: "Por registro", pontos: 5 },
+                { id: 51, saber: "Edição de mídias técnicas veiculadas em jornais, revistas e sites", unidade: "Por item", pontos: 0.1 },
+                { id: 52, saber: "Edição de roteiros para programas de rádio, TV e mídias; eventos institucionais (artísticos, culturais e esportivos)", unidade: "Por item", pontos: 0.1 },
+                { id: 53, saber: "Edição, organização, revisão, tradução e avaliação/parecer em publicações institucionais, bem como avaliação do projeto em si (critérios de relevância, execução, aspectos formais, metodológicos e teóricos)", unidade: "Por livro/periódico (evento)", pontos: 1 },
+                { id: 54, saber: "Liderança ou vice-liderança de grupo de pesquisa registrado", unidade: "Por grupo de pesquisa", pontos: 2.5 },
+                { id: 55, saber: "Atuação de servidor como avaliador em eventos acadêmicos, científicos, culturais, esportivos e técnicos envolvendo a análise crítica, avaliação e emissão de pareceres sobre trabalhos, projetos ou apresentações realizadas", unidade: "Por evento", pontos: 1 },
+                { id: 56, saber: "Atividade de avaliação do projeto de ensino e/ou pesquisa e/ou extensão e/ou inovação, verificando se o mesmo foi submetido de forma adequada e de acordo com as normas", unidade: "Por projeto", pontos: 1 },
+                { id: 57, saber: "Participação como coordenador de implantação de unidades de ensino", unidade: "Por unidade de ensino", pontos: 2.5 },
+                { id: 58, saber: "Participação como coordenador em projetos de desenvolvimento institucional e/ou ensino e/ou pesquisa e/ou extensão e/ou inovação e/ou assistência, na própria instituição ou em parceria com outras instituições", unidade: "Por projeto", pontos: 2.5 },
+                { id: 59, saber: "Participação como mediador, palestrante, apresentador ou artista em congresso, simpósio, conferência, colóquio, mesa redonda, workshop, seminário, debate, oficina, jornada, mostra, feira, minicursos, eventos científicos, técnico, esportivos, sociais, artísticos, culturais, sindicais e filantrópicos.", unidade: "Por evento", pontos: 1 },
+                { id: 60, saber: "Participação como membro de equipe de implantação de unidades de ensino.", unidade: "Por unidade de ensino implantada", pontos: 1 },
+                { id: 61, saber: "Participação como ouvinte ou assistente em congresso, simpósio, fórum, conferência, colóquio, mesa redonda, workshop, seminário, mostra, feira, minicursos, eventos científicos, técnico, esportivos, sociais, artísticos, culturais, sindicais e filantrópicos.", unidade: "Por evento", pontos: 0.125 },
+                { id: 62, saber: "Participação em comissão de elaboração/reformulaçã o de projetos pedagógicos de cursos técnicos integrados ao ensino médio, técnicos concomitantes ou subsequentes, graduação ou pós-graduação cursos de formação inicial e continuada (FIC)", unidade: "Por projeto", pontos: 0.5 },
+                { id: 63, saber: "Participação em conselhos editoriais", unidade: "Por livro/periódico (evento)", pontos: 2.5 },
+                { id: 64, saber: "Coordenação de elaboração/reformulaçã de projetos pedagógicos de cursos técnicos integrados ao ensino médio, técnicos concomitantes ou subsequentes, graduação ou pós-graduação", unidade: "Por projeto", pontos: 1 },
+                { id: 65, saber: "Participação em grupo de pesquisa registrado", unidade: "Por projeto", pontos: 1 },
+                { id: 66, saber: "Participação em projeto de implantação/implementação de ambientes de ensino/aprendizagem, laboratórios, oficinas, estúdios, alas ou áreas para práticas esportivas, sociais, artísticos e culturais.", unidade: "Por projeto", pontos: 1 },
+                { id: 67, saber: "Participação em projetos de desenvolvimento institucional e/ou ensino e/ou pesquisa e/ou extensão e/ou inovação e/ou assistência, na própria instituição ou em parceria com outras instituições.", unidade: "Por projeto", pontos: 1 },
+                { id: 68, saber: "Participação na organização de congresso, simpósio, conferência, colóquio, mesa redonda, workshop, seminário, mostra, feira, minicursos, eventos científicos, técnico, esportivos, sociais, artísticos, culturais, sindicais e filantrópicos.", unidade: "Por evento", pontos: 1.25 },
+                { id: 69, saber: "Participação no desenvolvimento de protótipos, depósitos e/ou registros de propriedade intelectual.", unidade: "Por projeto", pontos: 2.5 },
+                { id: 70, saber: "Prêmio de mérito profissional ou acadêmico, comendas, homenagens e menções honrosas", unidade: "Por premiação, comenda, homenagem e/ou menção honrosa", pontos: 3.125 },
+                { id: 71, saber: "Produção de material audiovisual", unidade: "Por Projeto", pontos: 1 },
+                { id: 72, saber: "Publicação de artigos, trabalho completo e capítulo de livro (com ISBN e Conselho Editorial)", unidade: "Por publicação (evento)", pontos: 1.5 },
+                { id: 73, saber: "Publicação de livro (com ISBN e Conselho Editorial)", unidade: "Por publicação (evento)", pontos: 2.5 },
+                { id: 74, saber: "Avaliador de curso pelo INEP ou pelo MEC", unidade: "Por avaliação", pontos: 2.5 },
+                { id: 75, saber: "Elaboração, revisão e/ou correção de provas de exame de seleção, vestibular ou concursos", unidade: "Por edital", pontos: 1 },
+                { id: 76, saber: "Participação como jurado na área de atuação", unidade: "Por evento", pontos: 0.5 },
+                { id: 77, saber: "Participação como orientador das monitorias de disciplinas e nas unidades de produção e laboratórios.", unidade: "Por orientação", pontos: 0.5 },
+                { id: 78, saber: "Participação como orientador de bolsistas de apoio técnico.", unidade: "Por orientação", pontos: 0.5 },
+                { id: 79, saber: "Participação como orientador/supervisor de estágios supervisionados.", unidade: "Por orientação/supervisão", pontos: 0.5 },
+                { id: 80, saber: "Participação como preceptor em residências acadêmicas", unidade: "Por precepção", pontos: 1 },
+                { id: 81, saber: "Participação no apoio a atividades de preceptoria em residências médica e multiprofissional", unidade: "Por declaração semestral", pontos: 0.1 },
+                { id: 82, saber: "Participação em situações de surtos, epidemias e pandemias", unidade: "Tempo (mês)", pontos: 0.5 },
+                { id: 83, saber: "Participação em políticas, programas e ações de promoção da saúde.", unidade: "Por programa, plano, projeto e/ou ação.", pontos: 1.5 },
+                { id: 84, saber: "Acolhimento em Saúde Mental, Atendimento em necessidades específicas e Humanização do Atendimento.", unidade: "Atendimento/encaminhamento e/ou participação em programa, plano, projeto e/ou ação de humanização.", pontos: 0.05 },
+                { id: 85, saber: "Atuação em áreas hospitalares críticas e semicríticas", unidade: "Tempo (mês)", pontos: 0.05 },
+                { id: 86, saber: "Atuação em atividades de campo e saídas pedagógicas, acompanhando estudantes, em conjunto com o corpo docente em atividades como: apoio à coleta de dados, observação e análise de comunidades, espaços urbanos, edificações ou fenômenos sociais para análise e registro, levantamentos e mapeamentos, estudos de caso em campo, práticas agrícolas, florestais, geológicas, geográficas e biológicas, projetos de extensão comunitária, visitas técnicas e guiadas a indústrias, laboratórios avançados, centros de pesquisa, obras em andamento, museus, teatros, exposições literárias ou eventos técnicos para expor os alunos a diferentes realidades profissionais e tecnologias.", unidade: "Por atividade de campo ou saída pedagógica", pontos: 0.25 },
+                { id: 87, saber: "Participação em políticas, programas e ações de promoção da inclusão, de gênero, da diversidade, de questões étnico-raciais, indígenas, pessoas com necessidades específicas e direitos humanos.", unidade: "Por programa, plano, projeto e/ou ação.", pontos: 1.5 },
+                { id: 88, saber: "Atuação em atividades de execução / operação, desenvolvimento, colaboração ou treinamento nos sistemas estruturadores do Governo Federal", unidade: "Tempo (mês)", pontos: 0.5 },
+                { id: 89, saber: "Produção, tradução e interpretação de materiais acessíveis", unidade: "Por material produzido, interpretado ou traduzido", pontos: 1 }
+            ];
+
+            // Data for RSC levels and their requirements
+            const rscLevels = [
+                { level: "RSC-1", prerequisite: "Fund Incompleto", minItems: 2, minPoints: 10, iq: "IQ Fundamental Completo (10%)" },
+                { level: "RSC-2", prerequisite: "Fund. Completo", minItems: 3, minPoints: 20, iq: "IQ Médio (20%)" },
+                { level: "RSC-3", prerequisite: "Médio/Técnico", minItems: 4, minPoints: 25, iq: "IQ Graduação (25%)" },
+                { level: "RSC-4", prerequisite: "Graduação", minItems: 5, minPoints: 30, iq: "IQ Especialização (30%)" },
+                { level: "RSC-5", prerequisite: "Pós-graduação", minItems: 8, minPoints: 52, iq: "IQ Mestrado (52%)" },
+                { level: "RSC-6", prerequisite: "Mestrado", minItems: 12, minPoints: 75, iq: "IQ Doutorado (75%)" }
+            ];
+
+            // Store current quantities for each item
+            const itemQuantities = new Array(rscData.length).fill(0);
+            const itemScores = new Array(rscData.length).fill(0);
+
+            // Function to render RSC items in the table
+            function renderRscItems() {
+                rscItemsContainer.innerHTML = ''; // Clear previous content
+                rscData.forEach((item, index) => {
+                    const row = document.createElement('tr');
+                    row.className = 'table-row';
+                    row.innerHTML = `
+                        <td>${item.id}</td>
+                        <td>${item.saber}</td>
+                        <td>${item.unidade}</td>
+                        <td>${item.pontos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 3 })}</td>
+                        <td>
+                            <input type="number" id="qty-${item.id}" class="input-field" value="${itemQuantities[index]}" min="0" step="any">
+                        </td>
+                        <td id="total-item-score-${item.id}">${itemScores[index].toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 3 })}</td>
+                    `;
+                    rscItemsContainer.appendChild(row);
+
+                    // Add event listener to the input field
+                    const inputElement = row.querySelector(`#qty-${item.id}`);
+                    inputElement.addEventListener('input', (event) => {
+                        let value = parseFloat(event.target.value);
+                        if (isNaN(value) || value < 0) {
+                            value = 0;
+                        }
+                        itemQuantities[index] = value;
+                        calculateTotalScore();
+                    });
+                });
+            }
+
+            // Function to calculate total score and update display
+            function calculateTotalScore() {
+                let totalScore = 0;
+                let countedItems = 0;
+
+                rscData.forEach((item, index) => {
+                    const quantity = itemQuantities[index];
+                    const score = quantity * item.pontos;
+                    itemScores[index] = score;
+                    totalScore += score;
+
+                    // Update individual item score display
+                    const totalItemScoreElement = document.getElementById(`total-item-score-${item.id}`);
+                    if (totalItemScoreElement) {
+                        totalItemScoreElement.textContent = score.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 3 });
+                    }
+
+                    if (quantity > 0) {
+                        countedItems++;
+                    }
+                });
+
+                totalScoreElement.textContent = totalScore.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 3 });
+                totalItemsElement.textContent = countedItems;
+
+                updateRscLevels(totalScore, countedItems);
+            }
+
+            // Function to update RSC level display based on current score and items
+            function updateRscLevels(currentScore, currentItems) {
+                rscLevelsContainer.innerHTML = ''; // Clear previous content
+                rscLevels.forEach(level => {
+                    const metPoints = currentScore >= level.minPoints;
+                    const metItems = currentItems >= level.minItems;
+                    const isMet = metPoints && metItems;
+
+                    const levelBox = document.createElement('div');
+                    levelBox.className = `rsc-level-box ${isMet ? 'met' : 'not-met'}`;
+                    levelBox.innerHTML = `
+                        <div>
+                            <p class="text-sm">${level.level} (${level.iq})</p>
+                            <p class="text-lg font-bold">${level.prerequisite}</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm">Pontos: ${currentScore.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 3 })} / ${level.minPoints}</p>
+                            <p class="text-sm">Itens: ${currentItems} / ${level.minItems}</p>
+                            <p class="text-sm mt-1">${isMet ? '✅ Atendido' : '❌ Não Atendido'}</p>
+                        </div>
+                    `;
+                    rscLevelsContainer.appendChild(levelBox);
+                });
+            }
+
+            // Initial render and calculation
+            renderRscItems();
+            calculateTotalScore();
+        });
+    </script>
+</body>
+</html>
