@@ -158,407 +158,96 @@
 
             // Data for RSC items from Anexo II
             const rscData = [
-                {
-                    "id": 1,
-                    "saber": "Atuação na área de gestão e/ou fiscalização de contratos, convênios e acordos",
-                    "descricao": "Atuação na gestão e/ou fiscalização de contratos, convênios e acordos firmados pela Instituição Federal de Ensino (IFE) com fornecedores, prestadores de serviços, instituições públicas ou privadas, tanto nacionais quanto internacionais.",
-                    "comprovacao": "Documentação emitida pela IFE, designando o servidor como gestor e/ou fiscal de contrato, convênio ou acordo, com a especificação dos objetos geridos; Declaração ou Certidão de Supervisores ou Gestores: assinado por gestores ou chefias atestando a atuação do servidor como gestor e/ou fiscal de contratos, convênios ou acordos, com o respectivo período de atuação.",
-                    "unidade": "Tempo (mês)",
-                    "pontos": 0.1
-                },
-                {
-                    "id": 2,
-                    "saber": "Atuação como suplente na área de gestão e/ou fiscalização de contratos, convênios e acordos",
-                    "descricao": "Atuação como suplente na gestão e/ou fiscalização de contratos, convênios e acordos firmados pela Instituição Federal de Ensino (IFE) com fornecedores, prestadores de serviços, instituições públicas ou privadas, tanto nacionais quanto internacionais.",
-                    "comprovacao": "Documentação emitida pela IFE, designando o servidor como gestor e/ou fiscal de contrato, convênio ou acordo, com a especificação dos objetos geridos; Declaração ou Certidão de Supervisores ou Gestores: assinado por gestores ou chefias atestando a atuação do servidor como gestor e/ou fiscal de contratos, convênios ou acordos, com o respectivo período de atuação.",
-                    "unidade": "Tempo (mês)",
-                    "pontos": 0.05
-                },
-                {
-                    "id": 3,
-                    "saber": "Atuação em comissões de corregedoria ou correição",
-                    "descricao": "Atuação do servidor em atividades de corregedoria ou correição",
-                    "comprovacao": "Portaria de designação, contendo a informação da natureza da comissão/atividade, bem como o período com início e fim.",
-                    "unidade": "Por portaria de designação, incluídas as prorrogações",
-                    "pontos": 2.5
-                },
-                {
-                    "id": 4,
-                    "saber": "Atuação em processo licitatório de aquisição e contratação",
-                    "descricao": "Atuação do servidor nas fases interna e externa dos processos licitatórios e contratos administrativos: 1 - preparatória; II - de divulgação do edital de licitação; III de apresentação de propostas e lances, quando for o caso; IV- de julgamento; V-de habilitação; VI - recursal; VII de homologação. Valorização do servidor a partir de soluções práticas com impacto institucional incluem desde a criação de novos procedimentos internos, melhorias em sistemas de gestão, desenvolvimento de novas tecnologias, até a simplificação de processos administrativos. Elas são evidenciadas por sua capacidade de gerar resultados concretos, como aumento da produtividade, redução de custos, otimização de recursos humanos e materiais, e melhorias no atendimento à comunidade acadêmica.",
-                    "comprovacao": "Portaria de Designação: documento emitido pela IFE, designando os servidores membros da equipe. Declaração ou certidão de Supervisores ou Gestores: Documento oficial assinado por gestores ou chefias atestando a participação do servidor na equipe. Declaração de Impacto Institucional: Documento assinado por dirigente da área impactada, atestando a participação, relevância e os resultados da solução aplicada, acompanhado dos atos de implementação da solução na instituição: portarias ou resoluções que formalizam a prática inovadora. Relatórios de Implementação: Relatório, devidamente assinado pelos integrantes da solução e pelo",
-                    "unidade": "Por processo licitatório",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 5,
-                    "saber": "Desenvolvimento de tecnologias e soluções práticas que tenham impacto institucional",
-                    "descricao": "Desenvolvimento de tecnologias, fluxo processual e outros que contribui para melhoria das práticas realizadas na IFE. O desenvolvimento de equipamentos, instrumentos e ferramentas é um processo técnico e sistemático que envolve a criação, concepção e implementação de dispositivos e instrumentos que atendem a necessidades específicas em diversos setores. Conjunto de atividades necessárias para a conservação ou permanência (manutenção preventiva ou corretiva), de equipamentos, instrumentos e ferramentas. Atuação na sustentação de software (funcionamento da infraestrutura dos sistemas de TI, de modo a evitar qualquer falha que existir, detectando possíveis problemas de segurança, hardware, dentre outros) e na evolução dos programas (aperfeiçoamento)",
-                    "comprovacao": "dirigente da unidade impactada, detalhando o problema identificado, a solução desenvolvida e o processo de implementação. Deve incluir ainda os dados sobre os resultados obtidos, como redução de custos, otimização de processos ou melhoria de indicadores institucionais. Atos Oficiais ou Portarias: Documentos oficiais que designam os atores envolvidos na criação e/ou desenvolvimento da solução na instituição, acompanhado dos ato de implementação: portarias ou resoluções que formalizam a prática inovadora. Certificados de Premiação ou Reconhecimento: Caso a solução tenha sido premiada ou reconhecida por órgãos internos ou externos à instituição, esses documentos podem ser usados como comprovação do impacto e relevância da solução. Declaração do dirigente da unidade.",
-                    "unidade": "Por solução (evento)",
-                    "pontos": 6.25
-                },
-                {
-                    "id": 6,
-                    "saber": "Elaboração de editais",
-                    "descricao": "Participação na organização de congresso, simpósio, conferência, colóquio, mesa redonda, workshop, seminário, debate, mostra, feira, minicursos, eventos científicos, técnico, esportivos, sociais, artísticos, culturais, sindicais e filantrópicos. Elaboração de documentos institucionais normativos, orientativos e regulatórios que auxiliam na tomada de decisões, na regulamentação de processos e na comunicação oficial da instituição, tais como editais, notas técnicas, chamadas públicas, pareceres técnicos, notas informativas entre outros de igual natureza.",
-                    "comprovacao": "Declaração da autoridade competente: Documento que ateste a autoria e a participação do servidor na elaboração de documentos institucionais, junto a cópia ou link do edital, parecer, nota técnica ou chamada pública assinada ou publicada.",
-                    "unidade": "Por edital",
-                    "pontos": 0.125
-                },
-                {
-                    "id": 7,
-                    "saber": "Elaboração de notas técnicas, chamadas públicas, pareceres técnicos, nota informativa, manuais e roteiros técnicos ou documentação similar",
-                    "descricao": "Atuação do servidor técnico-administrativo em grupos ou comissões designadas para a criação, revisão ou atualização de documentos que estabelecem diretrizes, normas e procedimentos dentro de uma instituição. Esses documentos podem incluir regulamentos, políticas, manuais, resoluções e outros normativos que orientam as práticas administrativas e operacionais da instituição",
-                    "comprovacao": "Declaração da autoridade competente: Documento que ateste a autoria e a participação do servidor na elaboração de documentos institucionais, junto a cópia ou link do edital, parecer, nota técnica ou chamada pública assinada ou publicada.",
-                    "unidade": "Por notas técnicas, chamadas públicas, pareceres técnicos, nota informativa ou documentação similar",
-                    "pontos": 1.25
-                },
-                {
-                    "id": 8,
-                    "saber": "Elogio profissional",
-                    "descricao": "Menção nominal e por escrito, concedida ao servidor em razão de atuação destacada em suas funções, com grande relevância e repercussão institucional",
-                    "comprovacao": "Portaria ou certificado registrado em assentamento funcional",
-                    "unidade": "Por portaria (evento)",
-                    "pontos": 1.25
-                },
-                {
-                    "id": 9,
-                    "saber": "Participação como membro de comissão organizadora de processo seletivo, vestibular, concurso ou exames públicos",
-                    "descricao": "Atuação como membro de comissão organizadora de concurso/exame público responsável pelo planejamento do concurso /exame público e gerenciamento de todas as fases do concurso.",
-                    "comprovacao": "Portaria de designação ou declaração expedida pelo órgão/entidade organizadora do certame",
-                    "unidade": "Por Edital (evento)",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 10,
-                    "saber": "Participação como membro de comissão responsável por processo seletivo, vestibular, concurso ou exames públicos",
-                    "descricao": "Atuação como membro de comissões responsáveis pela organização, condução e avaliação de processos seletivos, vestibulares ou concursos públicos. A participação envolve a colaboração em atividades estratégicas, desde a elaboração de editais e critérios de seleção, até a análise de candidatos, avaliação de recursos e impugnações, garantindo a lisura e o cumprimento das normas do processo.",
-                    "comprovacao": "Portaria de designação ou declaração expedida pelo órgão/entidade organizadora do certame",
-                    "unidade": "Por Edital (evento)",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 11,
-                    "saber": "Participação como membro em grupos, núcleos e comissões de políticas públicas inclusivas e afirmativas (heteroidentificação, gênero, diversidade, avaliação socioeconômica, PCD, avaliação de cotas)",
-                    "descricao": "Atuação em comissões voltadas para a implementação, avaliação e fiscalização de políticas públicas inclusivas e afirmativas, tais como: heteroidentificação racial, gênero, diversidade, avaliação socioeconômica, verificação de deficiência, ou comissões de análise de cotas",
-                    "comprovacao": "Portaria de designação ou declaração expedida pelo órgão/entidade.",
-                    "unidade": "Por declaração ou certificado de participação",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 12,
-                    "saber": "Participação como membro em comissões, comitês, grupos de trabalho e grupo de estudos em organizações privadas, entidades profissionais ou organizações da sociedade civil",
-                    "descricao": "Atuação como membro em comissões, comitês, grupos de trabalho e grupo de estudos em organizações privadas, entidades profissionais ou organizações da sociedade civil.",
-                    "comprovacao": "Declaração da organização/entidade privada em que realizou a atividade; Outro documento oficial comprobatório de realização da atividade.",
-                    "unidade": "Por declaração/documento oficial de realização da atividade",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 13,
-                    "saber": "Participação como membro titular em comissões, comitês e grupos no âmbito da administração pública",
-                    "descricao": "Atuação como membro titular em comissões, comitês e grupos de trabalho, no âmbito da administração pública, destinados à elaboração, revisão ou atualização de normativos institucionais, planos de gestão, políticas públicas e projetos institucionais. Esses grupos podem ser formados para diferentes finalidades, como: Comissões para elaboração de normativos institucionais (regulamentos, portarias, resoluções); Comitês de acompanhamento de programas e projetos institucionais; Grupos de trabalho para implementação de melhorias administrativas e operacionais; Comissões de sindicância, apuração e avaliação de processos internos; Grupos especializados em inovação e desenvolvimento de soluções práticas para a gestão pública.",
-                    "comprovacao": "Portaria de designação ou declaração expedida pelo órgão, contendo a informação da natureza da comissão/comité/grupo de trabalho, bem como o período com início e fim.",
-                    "unidade": "Por portaria/declaração Comissão /Comitê/GT (evento)",
-                    "pontos": 1.25
-                },
-                {
-                    "id": 14,
-                    "saber": "Participação como membro suplente em comissões, comitês, grupos previstos no âmbito da administração pública",
-                    "descricao": "Atuação como membro suplente em comissões, comitês ou grupos de trabalho que estão previstos em Leis, Portarias, Estatutos ou Regimentos implica uma função formal e regulamentada, que exige o cumprimento de um papel específico de acordo com normativos legais ou institucionais, como: - Comissões previstas em estatutos e regimentos internos; Comitês previstos em Portarias Ministeriais ou Institucionais; Grupos de trabalho previstos por Lei ou normativos legais que demandam a atuação de membros titulares com mandato definido.",
-                    "comprovacao": "Portaria de designação ou declaração expedida pelo órgão, contendo a informação da natureza da comissão/comitê/grupo de trabalho, bem como o período com início e fim, junto a Portaria, Estatuto, Lei ou Regimento que prevê a instituição",
-                    "unidade": "Por portaria/declaração Comissão /Comitê/GT (evento)",
-                    "pontos": 0.5
-                },
-                {
-                    "id": 15,
-                    "saber": "Participação em brigadas voluntárias de combate a incêndio e pânico e/ou em ações voluntárias",
-                    "descricao": "Atuação em equipes organizadas para prevenção e combate a incêndios e outras atividades típicas como prestar primeiros socorros, auxiliar na realização de cursos e campanhas educativas e auxiliar na realização de operações preventivas contra acidentes, em instituições públicas, incluindo as Instituições Federais de Ensino (IFE), ou instituições privadas, bem como na contenção de crises climáticas e desastres ambientais. Fazer parte da equipe de brigadas de incêndio. Atuação em iniciativas que visam incentivar a participação cidadã em ações voluntárias, promovendo a responsabilidade cívica e social, fortalecendo a solidariedade e o apoio mútuo na sociedade, suprindo lacunas de efetivo em serviços públicos e valorizando a participação cidadã, nos âmbitos cívico, cultural, educacional, científico, recreativo ou de assistência social, atendendo a Política Nacional do Voluntariado e suas regulamentações.",
-                    "comprovacao": "Portaria de designação ou declaração/certidão expedida por qualquer esfera do setor público. Portaria de designação expedida pelo órgão;",
-                    "unidade": "Por Ação ou Por participação em Brigada",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 16,
-                    "saber": "Participação em comissões de saúde e segurança no trabalho",
-                    "descricao": "Atuação como membro em comissões de saúde e segurança no trabalho na Administração Pública ou em organizações privadas, entidades profissionais ou organizações da sociedade civil.",
-                    "comprovacao": "Declaração da organização/entidade privada em que realizou a atividade; ou Outro documento oficial comprobatório de realização da atividade.",
-                    "unidade": "Por mandato/designação. (evento)",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 17,
-                    "saber": "Participação em conselhos superiores e órgãos colegiados das IFE",
-                    "descricao": "Atuação em conselhos superiores e órgãos colegiados das Instituições Federais de Ensino Superior (IFES), desde que a atuação não resulte de funções ou cargos com participação automática nas reuniões, como reitores ou diretores.",
-                    "comprovacao": "Portaria de designação ou declaração expedida pelo órgão, contendo a informação da natureza permanente do conselho/órgão colegiado, bem como o período com início e fim.",
-                    "unidade": "Por mandato/designação. (evento)",
-                    "pontos": 2.5
-                },
-                {
-                    "id": 18,
-                    "saber": "Participação, no exercício do cargo, em Consultorias e Assessoria Técnica Especializada",
-                    "descricao": "Atuação em atividade de consultoria ou de assessoria técnica especializada em projetos institucionais em matérias vinculadas às atribuições do cargo",
-                    "comprovacao": "Declaração da organização/entidade privada em que realizou a atividade; ou Outro documento oficial comprobatório de realização da atividade.",
-                    "unidade": "Por consultoria",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 19,
-                    "saber": "Participação em programas e políticas públicas externos à instituição",
-                    "descricao": "Atuação em políticas públicas de iniciativa governamental, não governamental ou interinstitucional, que visam à promoção de melhorias sociais, educacionais e administrativas.",
-                    "comprovacao": "Declaração ou certidão de participação pelo órgão ou instituição promotora",
-                    "unidade": "Por programas e políticas públicas (evento)",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 20,
-                    "saber": "Participação na coordenação/supervisão , fiscalização, logística de preparação e/ou realização de concurso público ou exames públicos",
-                    "descricao": "Atuação em atividades de coordenação, supervisão e fiscalização de concursos públicos ou exames públicos, responsáveis diretos pela organização, controle e garantia da execução adequada das etapas do processo seletivo no local de prova. Participar da logística de preparação e de realização de concurso público que envolva atividades de planejamento, execução e avaliação de resultado.",
-                    "comprovacao": "Portaria de designação ou declaração expedida pelo órgão/entidade organizadora do certame",
-                    "unidade": "Por Edital (evento)",
-                    "pontos": 0.625
-                },
-                {
-                    "id": 21,
-                    "saber": "Tempo de efetivo exercício na carreira",
-                    "descricao": "Tempo acumulado de efetivo exercício do servidor na carreira, inclusive o tempo de cessão e/ou colaboração técnica no âmbito do Ministério da Educação e suas entidades vinculadas",
-                    "comprovacao": "Certidão de Tempo de Serviço (CTS): Emitida pela própria IFE, contendo as datas de admissão e desligamento, quando aplicável. Declaração de Exercício Funcional: Documento oficial emitido pela IFE, informando o cargo ocupado, as funções desempenhadas e o período de atuação do servidor. Publicações em Diário Oficial ou Boletins Internos: Publicações que comprovam a nomeação pode servir como comprovação adicional. Termos de Posse e Exoneração: Caso o servidor tenha sido empossado ou exonerado de cargos nas IFE, esses documentos apresentam as datas de início e término da atuação. Ficha Funcional ou Histórico Funcional: Emitido pela área de gestão de pessoas da IFE, contendo o histórico completo do servidor, como movimentações, promoções e funções desempenhadas. Declaração ou certidão de tempo de exercício na instituição com data de início e fim.",
-                    "unidade": "Tempo (mês)",
-                    "pontos": 0.125
-                },
-                {
-                    "id": 22,
-                    "saber": "Tempo de serviço e/ou vínculo empregatício em outras instituições públicas e/ou privadas",
-                    "descricao": "Tempo acumulado de exercício em instituições públicas de qualquer esfera administrativa (municipal, estadual, federal), em cargo efetivo ou contrato temporário. Essa experiência deve ter contribuído para o desenvolvimento de competências profissionais no desempenho das funções administrativas, técnicas ou de apoio, enriquecendo a prática laboral do servidor por meio da vivência em diferentes contextos institucionais. Tempo de exercício no serviço público em outras instituições. Vínculo empregatício atual e/ou finalizado. Tempo de exercício na instituição que atua e/ou atuou concomitante com as IFE. Em instituições pública municipal, estadual, distrital e/ou federal; organizações públicas e privadas; organizações não governamentais; organismos internacionais; instituições paraestatais e/ou empresas privadas. Compreende-se o exercício da docência em diferentes níveis e modalidades da educação básica (educação infantil, ensino fundamental e ensino médio) e ensino superior (graduação tecnológica, licenciatura, bacharelado e/ou curso de formação de natureza vocacional). As modalidades se referem à educação profissional e tecnológica; educação especial; educação indígena; educação a distância; educação do campo; educação quilombola e educação de jovens e adultos. Atuação em disciplinas de estágio supervisionado na educação profissional técnica de nível médio (cursos técnicos de nível médio) e ensino superior (graduação tecnológica, licenciatura e bacharelado), bem como, em componentes curriculares de cursos de licenciatura que exigem a prática de ensino.",
-                    "comprovacao": "Certidão de Tempo de Serviço (CTS): Emitida pela instituição pública onde o servidor prestou serviços anteriormente, contendo as datas de admissão e desligamento, quando aplicável. Declaração de Exercício Funcional: Documento emitido pela instituição, detalhando o cargo ocupado, as funções desempenhadas e o período em que o servidor esteve ativo. Publicações em Diário Oficial ou Boletim Interno: Caso o servidor tenha sido nomeado por meio de publicação oficial, esse documento pode servir como comprovação adicional. Termos de Posse e Exoneração: esses documentos corroboram as datas de início e término da atuação. Declaração ou certidão de tempo de exercício na instituição com data de início e fim.",
-                    "unidade": "Tempo (mês)",
-                    "pontos": 0.05
-                },
-                {
-                    "id": 23,
-                    "saber": "Trabalho desenvolvido em órgãos estatais e/ou paraestatais, escolas de governo, agências reguladoras, organismo internacionais",
-                    "descricao": "Atuação em órgãos estatais e/ou paraestatais (Ex: SESI, SESC, SENAI, SENAC; Organizações Sociais; OSCIP; Entidades de Apoio), Escolas de Governo (instituições públicas criadas com a finalidade de promover a formação, o aperfeiçoamento e a profissionalização de agentes públicos, visando ao fortalecimento e à ampliação da capacidade de execução do Estado, tendo em vista a formulação, a implantação, a execução e a avaliação das políticas públicas), Agências Reguladoras (Instituídas sob a forma de autarquias de regime especial, são agências destinadas a regulamentar, controlar e fiscalizar a execução de serviços públicos transferidos para o setor privado por intermédio de concessões, permissões etc. Ex: Agência Nacional de Telecomunicações (Anatel), Agência Nacional de Energia Elétrica (Aneel) e Agência Nacional do Petróleo (ANP) ou Organismos Internacionais (instituições criadas por países (estados soberanos), regidas por meio de tratados, que buscam através da cooperação a melhoria das condições econômicas, políticas e sociais dos associados. Ex: ONU, OEA, OCDE, OMS, OIT, etc.)",
-                    "comprovacao": "- Declaração ou certidão emitida pelo órgão/escola de governo/agência reguladora/organismo internacional, com data de início e fim; ou - Outro documento oficial comprobatório de realização da atividade.",
-                    "unidade": "Ano completo (tempo)",
-                    "pontos": 0.5
-                },
-                {
-                    "id": 24,
-                    "saber": "Trabalho desenvolvido no âmbito do Ministério da Educação e suas entidades vinculadas (cessão e/ou colaboração técnica)",
-                    "descricao": "Atuação em órgãos da estrutura no âmbito do Ministério da educação e suas entidades vinculadas, por meio de cessão e/ou colaboração técnica, contribuindo com sua expertise para atividades e programas estratégicos.",
-                    "comprovacao": "Portaria de cessão publicada em DOU junto a Portaria de conclusão da movimentação quando se aplicar.",
-                    "unidade": "Tempo (mês)",
-                    "pontos": 0.05
-                },
-                {
-                    "id": 25,
-                    "saber": "Participação como membro da gestão e/ou do conselho fiscal, ou comissão sindical e associações vinculadas às IFE",
-                    "descricao": "Atuação como membro de entidades sindicais ou associações representativas de classe, assumindo responsabilidades na gestão, comissões permanentes, fiscalização e defesa dos interesses da categoria.",
-                    "comprovacao": "Declaração expedida pela entidade sindical ou associação indicando a atividade prevista em estatuto/ Declaração expedida pela entidade sindical ou associação atestando o exercício de funções de gestão ou fiscalização, com a especificação da duração do mandato",
-                    "unidade": "Por mandato (evento)",
-                    "pontos": 2.5
-                },
-                {
-                    "id": 26,
-                    "saber": "Participação como membro em comissões permanentes e/ou assessorias instituídas por lei",
-                    "descricao": "Atuação como membro em comissões permanentes e/ou assessorias instituídas por lei.",
-                    "comprovacao": "Declaração expedida pela entidade sindical ou associação indicando a atividade prevista em estatuto/ Declaração expedida pela entidade sindical ou associação atestando o exercício de funções de gestão ou fiscalização, com a especificação da duração do mandato",
-                    "unidade": "Por mandato (evento)",
-                    "pontos": 2.5
-                },
-                {
-                    "id": 27,
-                    "saber": "Participação como membro de comissão de consulta/eleitoral",
-                    "descricao": "Atuação como membro de comissões responsáveis pela organização e condução de processos de consulta pública ou eleitoral, seja para a escolha de dirigentes de instituições públicas ou em eleições internas, envolvendo participação ativa em todas as etapas do processo, desde a organização, verificação de elegibilidade, acompanhamento da votação e apuração, até a divulgação dos resultados",
-                    "comprovacao": "Portaria de nomeação para a comissão de consulta ou eleitoral, especificando o cargo ou função exercida. Certidão de participação emitida pela instituição ou entidade responsável, atestando a conclusão dos trabalhos na comissão.",
-                    "unidade": "Por consulta/eleição (evento)",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 28,
-                    "saber": "Participação como membro em conselho profissional",
-                    "descricao": "Atuação como membro efetivo em conselhos profissionais regulamentados, que são responsáveis pela fiscalização e regulação de determinadas profissões no Brasil",
-                    "comprovacao": "Certidão ou declaração emitida pelo conselho profissional, atestando a participação como membro durante um mandato específico; Portaria de nomeação ou ata de posse, que formalize a designação do servidor como membro do conselho, com a especificação do período do mandato/exercício. Certificado de conclusão do mandato, se aplicável, emitido ao término do período de atuação no conselho. [cite: 130]",
-                    "unidade": "Mandato (evento)",
-                    "pontos": 0.5
-                },
-                {
-                    "id": 29,
-                    "saber": "Participação como membro titular e/ou suplente da Comissão Interna de Supervisão da carreira (CIS) e outras comissões correlatas.",
-                    "descricao": "Atuação como membro titular e/ou suplente da Comissão Interna de Supervisão da Carreira (CIS) [cite: 131]",
-                    "comprovacao": "Portaria de designação expedida por autoridade competente do órgão/entidade [cite: 132]",
-                    "unidade": "Por ano de mandato",
-                    "pontos": 0.5
-                },
-                {
-                    "id": 30,
-                    "saber": "Participação na organização de eventos pedagógicos, educacionais, científicos, tecnológicos, esportivos, sociais, sindical, filantrópicos ou culturais",
-                    "descricao": "Atuação no processo de planejamento e organização de eventos, incluindo a sua concepção (identificação dos objetivos; coleta de informações sobre os participantes, patrocinadores, entidades e outras instituições em potencial; listagem dos resultados desejados; estimativas de exequibilidade econômica e técnica; estimativas de tempo e recursos necessários; estabelecimento de diretrizes; etc.), pré-evento (coordenação executiva e os controles financeiro, técnico-administrativo e social do evento. Ex: escolha do local; definição da data; elaboração de temática e calendário; identificação e análise dos participantes; estratégia de comunicação e marketing; infraestrutura de recursos audiovisuais, materiais e serviços; programação social, cultural e turística; cronograma básico; etc.), per ou transevento (recepcionar os participantes, convidados e autoridades; atender os participantes; preparar com antecedência os impressos e outros materiais necessários ao evento; supervisionar os serviços oferecidos aos participantes, convidados e autoridades; efetuar novas inscrições; entregar materiais aos participantes; entregar os certificados; etc.) e pós-evento (avaliação técnica, administrativa e dos participantes. Ex: questionários de avaliação dos participantes). [cite: 132, 133, 134, 135]",
-                    "comprovacao": "Certificado ou Declaração emitida pela instituição de realização do evento [cite: 136]",
-                    "unidade": "Por certificado / declaração",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 31,
-                    "saber": "Representação institucional em conselhos e/ou órgãos municipais, estaduais e federais, organizações sociais, assistenciais e/ou sem fins lucrativos",
-                    "descricao": "Atuação como representante institucional em conselhos e/ou órgãos municipais, estaduais e federais, organizações sociais, assistenciais e/ou sem fins lucrativos [cite: 136]",
-                    "comprovacao": "Portaria de designação ou declaração expedida pelo órgão/entidade, contendo o período de início e fim. [cite: 137]",
-                    "unidade": "Por portaria/declaração (evento)",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 32,
-                    "saber": "Coordenação/presidência de comissões, comitês, grupos de trabalho ou grupo de estudo na administração pública",
-                    "descricao": "Atuação como coordenador em comissões, comitês ou grupos de trabalho no âmbito da administração pública [cite: 137]",
-                    "comprovacao": "Portaria de designação ou declaração expedida pelo órgão, contendo a informação da natureza da comissão/comitê/grupo de trabalho, bem como o período de início e fim [cite: 137]",
-                    "unidade": "Por portaria/declaração (evento)",
-                    "pontos": 2.5
-                },
-                {
-                    "id": 33,
-                    "saber": "Atuação do servidor como titular e/ou substituto eventual do titular ocupante de Cargo de Direção (CD) ou equivalente.",
-                    "descricao": "Atuação como titular e/ou substituto eventual de cargos de direção (CD) [cite: 138]",
-                    "comprovacao": "Portaria de nomeação + declaração/certidão expedida pelo órgão com data de início e fim. [cite: 138]",
-                    "unidade": "Tempo (mês)",
-                    "pontos": 0.25
-                },
-                {
-                    "id": 34,
-                    "saber": "Atuação do servidor como titular e/ou substituto eventual do titular ocupante de Função Gratificada (FG) ou equivalente.",
-                    "descricao": "Atuação como titular e/ou substituto eventual de Função Gratificada (FG) [cite: 140]",
-                    "comprovacao": "Portaria de designação + declaração/certidão expedida pelo órgão com data de início e fim. [cite: 140]",
-                    "unidade": "Tempo (mês)",
-                    "pontos": 0.125
-                },
-                {
-                    "id": 35,
-                    "saber": "Responsável por setor, unidade ou equipe",
-                    "descricao": "Atuação como responsável por setor ou unidade ou responsável técnico por equipe [cite: 141]",
-                    "comprovacao": "Portaria de designação Declaração/certidão expedida pelo órgão com data de início e fim. [cite: 141]",
-                    "unidade": "Tempo (mês)",
-                    "pontos": 0.125
-                },
-                {
-                    "id": 36,
-                    "saber": "Proficiência ou curso em LIBRAS e/ou língua estrangeira",
-                    "descricao": "Certificações que comprovem a proficiência ou a participação em cursos de Língua Brasileira de Sinais (LIBRAS) ou de línguas estrangeiras [cite: 142]",
-                    "comprovacao": "Certificado de proficiência em LIBRAS emitido por instituições reconhecidas, como o PROLIBRAS, ou em línguas estrangeiras, como TOEFL, IELTS, DELF, DELE ou similares) Certificados de conclusão de cursos de LIBRAS ou de línguas estrangeiras, emitidos por instituições de ensino credenciadas. [cite: 142]",
-                    "unidade": "Por certificação (evento)",
-                    "pontos": 5.0
-                },
-                {
-                    "id": 37,
-                    "saber": "Certificação Profissional na área de atuação",
-                    "descricao": "Certificações profissionais emitidas por instituições reconhecidas, nacionais ou internacionais, que atestem conhecimentos e habilidades específicas relacionadas diretamente à área de atuação do servidor. [cite: 143, 144] A certificação deve ser voltada para o aprimoramento técnico ou gerencial, contribuindo para o desenvolvimento de competências que agreguem valor às suas funções e ao desempenho institucional. [cite: 145]",
-                    "comprovacao": "Cópia do certificado profissional [cite: 146]",
-                    "unidade": "Por certificação (evento)",
-                    "pontos": 1.25
-                },
-                {
-                    "id": 38,
-                    "saber": "Participação em capacitações como instrutor ou conteudista em curso de formação, de desenvolvimento ou de treinamento",
-                    "descricao": "Atuação como responsável pela concepção, elaboração e/ou transmissão de conteúdos em cursos voltados à formação, desenvolvimento ou treinamento. [cite: 147] O servidor pode atuar como instrutor, ministrando aulas ou treinamentos, ou como conteudista, desenvolvendo materiais didáticos e programáticos para as capacitações [cite: 147]",
-                    "comprovacao": "Certidão ou declaração de participação expedida pelo órgão ou instituição promotora Materiais didáticos produzidos, como apostilas, apresentações ou outros recursos utilizados, quando se aplicar. [cite: 148]",
-                    "unidade": "Por curso, independente da carga horária (evento)",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 39,
-                    "saber": "Participação em capacitações como tutor, monitor, orientador ou mentor em curso de formação, de desenvolvimento ou de treinamento, incluindo tutoria de estágio probatório",
-                    "descricao": "Atuação em funções de suporte, acompanhamento e orientação de participantes em cursos de formação, desenvolvimento ou treinamento, incluindo tutoria de estágio probatório, auxiliando no processo de aprendizagem dos participantes, oferecendo apoio técnico, pedagógico e logístico, sem ser necessariamente o responsável pela criação do conteúdo ou sua apresentação formal. [cite: 149]",
-                    "comprovacao": "Certidão ou declaração de participação expedida pelo órgão ou instituição promotora [cite: 149]",
-                    "unidade": "Por participação, independente da carga horária (evento)",
-                    "pontos": 0.5
-                },
-                {
-                    "id": 40,
-                    "saber": "Participação em capacitações, incluindo disciplinas isoladas em cursos de graduação e pós-graduação, que desenvolvam competências alinhadas aos objetivos institucionais e/ou que favoreçam a formação continuada no cargo",
-                    "descricao": "Participação em cursos de capacitação, oficinas, seminários, congressos e disciplinas isoladas de graduação ou pós-graduação, diretamente ligados ao desenvolvimento de competências essenciais para o alcance dos objetivos estratégicos institucionais e/ou para o desempenho das atribuições do cargo ocupado. [cite: 150]",
-                    "comprovacao": "Certificados de participação ou conclusão emitidos pelas instituições responsáveis pela capacitação (curso, oficina, seminário, congressos, fórum e afins) Certificado ou histórico escolar no qual conste as disciplinas cursadas e as respectivas cargas horárias [cite: 150]",
-                    "unidade": "Por Carga horária (a cada 10 horas)",
-                    "pontos": 0.25
-                },
-                {
-                    "id": 41,
-                    "saber": "Títulos de educação formal, diferente do requisito de escolaridade e formação especializada exigidos",
-                    "descricao": "Título de educação formal, desde que não seja requisito de ingresso do cargo além daquele que o habilita e define o nível de RSC pretendido, no âmbito do plano de qualificação institucional. [cite: 151]",
-                    "comprovacao": "Diplomas revalidados (no caso de títulos obtidos no exterior) que tenham sido reconhecidos por universidades brasileiras, conforme regulamentação do MEC. [cite: 152]",
-                    "unidade": "Por diploma ou certificado (evento)",
-                    "pontos": 6.25
-                },
-                {
-                    "id": 42,
-                    "saber": "Autoria de obras artísticas e cultural registradas",
-                    "descricao": "Autoria de obras artísticas e cultural registradas",
-                    "comprovacao": "Registro da obra",
-                    "unidade": "Por obra artística e cultura",
-                    "pontos": 2.5
-                },
-                {
-                    "id": 43,
-                    "saber": "Autor de projeto aprovado em edital de pesquisa e/ou extensão.",
-                    "descricao": "Autoria de Projeto de Pesquisa e/ou Extensão aprovado nas instâncias competentes [cite: 154]",
-                    "comprovacao": "Projeto aprovado nas instâncias competentes",
-                    "unidade": "Por edital/Projeto",
-                    "pontos": 2.5
-                },
-                {
-                    "id": 44,
-                    "saber": "Captação de recursos em projetos de desenvolvimento institucional e/ou ensino e/ou pesquisa e/ou extensão e/ou inovação e/ou gestão e/ou assistência",
-                    "descricao": "Elaboração de projeto para a captação de recursos, visando o custeio e investimento em pesquisa e desenvolvimento institucional e/ou ensino e/ou pesquisa e/ou extensão e/ou inovação e/ou gestão e/ou assistência",
-                    "comprovacao": "Projeto aprovado nas instâncias competentes",
-                    "unidade": "Por edital/Projeto",
-                    "pontos": 2.5
-                },
-                {
-                    "id": 45,
-                    "saber": "Carta Patente",
-                    "descricao": "Título de propriedade temporária sobre uma invenção ou modelo de utilidade, outorgado pelo Estado aos inventores ou autores ou outras pessoas físicas ou jurídicas detentoras de direitos sobre a criação [cite: 155]",
-                    "comprovacao": "Número de protocolo e situação do pedido no INPI ou em órgão de outro país equivalente ao INPI e documento emitido por um Núcleo de Inovação Tecnológica de instituições públicas comprovando o ineditismo, atividade inventiva, suficiência descritiva e aplicação industrial da patente",
-                    "unidade": "Por patente",
-                    "pontos": 5.0
-                },
-                {
-                    "id": 46,
-                    "saber": "Contratos de transferência de tecnologia e licenciamento.",
-                    "descricao": "Contrato de transferência de tecnologia e de licenciamento para outorga de direito de uso ou de exploração de criação desenvolvida isoladamente por Instituições Científica, Tecnológica e de Inovação (ICTs) ou por meio de parceria, na qual o servidor esteja envolvido [cite: 156]",
-                    "comprovacao": "Cópia do contrato",
-                    "unidade": "Por contrato",
-                    "pontos": 5.0
-                },
-                {
-                    "id": 47,
-                    "saber": "Coordenação de acordos ou convênios de cooperação",
-                    "descricao": "Atuação na coordenação de acordos ou convênios de cooperação com instituições públicas e privadas para realização de atividades conjuntas de pesquisa científica e tecnológica e de desenvolvimento de tecnologia, produto, serviço ou processo",
-                    "comprovacao": "Cópia do acordo/convênio",
-                    "unidade": "Por acordo / convênio",
-                    "pontos": 2.5
-                },
-                {
-                    "id": 48,
-                    "saber": "Coordenação de elaboração de Projetos Pedagógicos de novos Cursos.",
-                    "descricao": "Atuação na articulação, planejamento, execução e avaliação das ações pedagógicas nos projetos pedagógicos de criação de novos cursos [cite: 157]",
-                    "comprovacao": "Cópia do projeto pedagógico",
-                    "unidade": "Por projeto",
-                    "pontos": 2.5
-                },
-                {
-                    "id": 49,
-                    "saber": "Desenvolvimento de projeto gráfico, diagramação ou identidade visual",
-                    "descricao": "Projeto Gráfico (É a técnica de distribuir de forma harmônica os elementos presentes em uma peça de design gráfico) Diagramação (alinhamento do projeto gráfico de modo a ser melhor interpretado). [cite: 158] A identidade visual (consiste no conjunto de elementos gráficos que expressam o propósito, missão e valores da sua empresa, sendo responsável por se comunicar com o seu público-alvo de forma simples e atrativa) [cite: 159]",
-                    "comprovacao": "Cópia do material final (ou link para acesso) ou declaração expedida pelo órgão",
-                    "unidade": "Por projeto",
-                    "pontos": 1.0
-                },
-                {
-                    "id": 50,
-                    "saber": "Desenvolvimento de software e sistemas digitais",
-                    "descricao": "Processo de criação, design, IA (Inteligência Artificial), modelos de linguagem naturais, bots e afins, implementação e suporte de software e conteúdos digitais",
-                    "comprovacao": "Certificado de Registro de Programa de Computador ou declaração institucional",
-                    "unidade": "Por registro",
-                    "pontos": 5.0
-                }
-            ];
+                { id: 1, saber: "Atuação na área de gestão e/ou fiscalização de contratos, convênios e acordos", unidade: "Tempo (mês)", pontos: 0.1 },
+                { id: 2, saber: "Atuação como suplente na área de gestão e/ou fiscalização de contratos, convênios e acordos", unidade: "Tempo (mês)", pontos: 0.05 },
+                { id: 3, saber: "Atuação em comissões de corregedoria ou correição", unidade: "Por portaria de designação, incluídas as prorrogações", pontos: 2.5 },
+                { id: 4, saber: "Atuação em processo licitatório de aquisição e contratação", unidade: "Por processo licitatório", pontos: 1 },
+                { id: 5, saber: "Desenvolvimento de tecnologias e soluções práticas que tenham impacto institucional", unidade: "Por solução (evento)", pontos: 6.25 },
+                { id: 6, saber: "Elaboração de editais", unidade: "Por edital", pontos: 0.125 },
+                { id: 7, saber: "Elaboração de notas técnicas, chamadas públicas, pareceres técnicos, nota informativa, manuais e roteiros técnicos ou documentação similar", unidade: "Por notas técnicas, chamadas públicas, pareceres técnicos, nota informativa ou documentação similar", pontos: 1.25 },
+                { id: 8, saber: "Elogio profissional", unidade: "Por portaria (evento)", pontos: 1.25 },
+                { id: 9, saber: "Participação como membro de comissão organizadora de processo seletivo, vestibular, concurso ou exames públicos", unidade: "Por Edital (evento)", pontos: 1 },
+                { id: 10, saber: "Participação como membro de comissão responsável por processo seletivo, vestibular, concurso ou exames públicos", unidade: "Por Edital (evento)", pontos: 1 },
+                { id: 11, saber: "Participação como membro em grupos, núcleos e comissões de políticas públicas inclusivas e afirmativas (heteroidentificação, gênero, diversidade, avaliação socioeconômica, PCD, avaliação de cotas)", unidade: "Por declaração ou certificado de participação", pontos: 1 },
+                { id: 12, saber: "Participação como membro em comissões, comitês, grupos de trabalho e grupo de estudos em organizações privadas, entidades profissionais ou organizações da sociedade civil", unidade: "Por declaração/documento oficial de realização da atividade", pontos: 1 },
+                { id: 13, saber: "Participação como membro titular em comissões, comitês e grupos no âmbito da administração pública", unidade: "Por portaria/declaração Comissão /Comitê/GT (evento)", pontos: 1.25 },
+                { id: 14, saber: "Participação como membro suplente em comissões, comitês, grupos previstos no âmbito da administração pública", unidade: "Por portaria/declaração Comissão /Comitê/GT (evento)", pontos: 0.5 },
+                { id: 15, saber: "Participação em brigadas voluntárias de combate a incêndio e pânico e/ou em ações voluntárias", unidade: "Por Ação ou Por participação em Brigada", pontos: 1 },
+                { id: 16, saber: "Participação em comissões de saúde e segurança no trabalho", unidade: "Por mandato/designação. (evento)", pontos: 1 },
+                { id: 17, saber: "Participação em conselhos superiores e órgãos colegiados das IFE", unidade: "Por mandato/designação. (evento)", pontos: 2.5 },
+                { id: 18, saber: "Participação, no exercício do cargo, em Consultorias e Assessoria Técnica Especializada", unidade: "Por consultoria", pontos: 1 },
+                { id: 19, saber: "Participação em programas e políticas públicas externos à instituição", unidade: "Por programas e políticas públicas (evento)", pontos: 1 },
+                { id: 20, saber: "Participação na coordenação/supervisão, fiscalização, logística de preparação e/ou realização de concurso público ou exames públicos", unidade: "Por Edital (evento)", pontos: 0.625 },
+                { id: 21, saber: "Tempo de efetivo exercício na carreira", unidade: "Tempo (mês)", pontos: 0.125 },
+                { id: 22, saber: "Tempo de serviço e/ou vínculo empregatício em outras instituições públicas e/ou privadas", unidade: "Tempo (mês)", pontos: 0.05 },
+                { id: 23, saber: "Trabalho desenvolvido em órgãos estatais e/ou paraestatais, escolas de governo, agências reguladoras, organismo internacionais", unidade: "Ano completo (tempo)", pontos: 0.5 },
+                { id: 24, saber: "Trabalho desenvolvido no âmbito do Ministério da Educação e suas entidades vinculadas (cessão e/ou colaboração técnica)", unidade: "Tempo (mês)", pontos: 0.05 },
+                { id: 25, saber: "Participação como membro da gestão e/ou do conselho fiscal, ou comissão sindical e associações vinculadas às IFE", unidade: "Por mandato (evento)", pontos: 2.5 },
+                { id: 26, saber: "Participação como membro em comissões permanentes e/ou assessorias instituídas por lei", unidade: "Por mandato (evento)", pontos: 2.5 },
+                { id: 27, saber: "Participação como membro de comissão de consulta/eleitoral", unidade: "Por consulta/eleição (evento)", pontos: 1 },
+                { id: 28, saber: "Participação como membro em conselho profissional", unidade: "Mandato (evento)", pontos: 0.5 },
+                { id: 29, saber: "Participação como membro titular e/ou suplente da Comissão Interna de Supervisão da carreira (CIS) e outras comissões correlatas.", unidade: "Por ano de mandato", pontos: 0.5 },
+                { id: 30, saber: "Participação na organização de eventos pedagógicos, educacionais, científicos, tecnológicos, esportivos, sociais, sindical, filantrópicos ou culturais", unidade: "Por certificado / declaração", pontos: 1 },
+                { id: 31, saber: "Representação institucional em conselhos e/ou órgãos municipais, estaduais e federais, organizações sociais, assistenciais e/ou sem fins lucrativos", unidade: "Por portaria/declaração (evento)", pontos: 1 },
+                { id: 32, saber: "Coordenação/presidência de comissões, comitês, grupos de trabalho ou grupo de estudo na administração pública", unidade: "Por portaria/declaração (evento)", pontos: 2.5 },
+                { id: 33, saber: "Atuação do servidor como titular e/ou substituto eventual do titular ocupante de Cargo de Direção (CD) ou equivalente.", unidade: "Tempo (mês)", pontos: 0.25 },
+                { id: 34, saber: "Atuação do servidor como titular e/ou substituto eventual do titular ocupante de Função Gratificada (FG) ou equivalente.", unidade: "Tempo (mês)", pontos: 0.125 },
+                { id: 35, saber: "Responsável por setor, unidade ou equipe", unidade: "Tempo (mês)", pontos: 0.125 },
+                { id: 36, saber: "Proficiência ou curso em LIBRAS e/ou língua estrangeira", unidade: "Por certificação (evento)", pontos: 5 },
+                { id: 37, saber: "Certificação Profissional na área de atuação", unidade: "Por certificação (evento)", pontos: 1.25 },
+                { id: 38, saber: "Participação em capacitações como instrutor ou conteudista em curso de formação, de desenvolvimento ou de treinamento", unidade: "Por curso, independente da carga horária (evento)", pontos: 1 },
+                { id: 39, saber: "Participação em capacitações como tutor, monitor, ou orientador mentor em curso de formação, de desenvolvimento ou de treinamento, incluindo tutoria de estágio probatório", unidade: "Por participação, independente da carga horária (evento)", pontos: 0.5 },
+                { id: 40, saber: "Participação em capacitações, incluindo disciplinas isoladas em cursos de graduação e pós-graduação, que desenvolvam competências alinhadas aos objetivos institucionais e/ou que favoreçam a formação continuada no cargo", unidade: "Por Carga horária (a cada 10 horas)", pontos: 0.25 },
+                { id: 41, saber: "Títulos de educação formal, diferente do requisito de escolaridade e formação especializada exigidos para o ingresso no cargo ocupado pelo servidor", unidade: "Por diploma ou certificado (evento)", pontos: 6.25 },
+                { id: 42, saber: "Autoria de obras artísticas e cultural registradas", unidade: "Por obra artística e cultura", pontos: 2.5 },
+                { id: 43, saber: "Autor de projeto aprovado em edital de pesquisa e/ou extensão.", unidade: "Por edital/Projeto", pontos: 2.5 },
+                { id: 44, saber: "Captação de recursos em projetos de desenvolvimento institucional e/ou ensino e/ou pesquisa e/ou extensão e/ou inovação e/ou gestão e/ou assistência", unidade: "Por edital/Projeto", pontos: 2.5 },
+                { id: 45, saber: "Carta Patente", unidade: "Por patente", pontos: 5 },
+                { id: 46, saber: "Contratos de transferência de tecnologia e licenciamento.", unidade: "Por contrato", pontos: 5 },
+                { id: 47, saber: "Coordenação de acordos ou convênios de cooperação", unidade: "Por acordo / convênio", pontos: 2.5 },
+                { id: 48, saber: "Coordenação de elaboração de Projetos Pedagógicos de novos Cursos.", unidade: "Por projeto", pontos: 2.5 },
+                { id: 49, saber: "Desenvolvimento de projeto gráfico, diagramação ou identidade visual", unidade: "Por projeto", pontos: 1 },
+                { id: 50, saber: "Desenvolvimento de software e sistemas digitais", unidade: "Por registro", pontos: 5 },
+                { id: 51, saber: "Edição de mídias técnicas veiculadas em jornais, revistas e sites", unidade: "Por item", pontos: 0.1 },
+                { id: 52, saber: "Edição de roteiros para programas de rádio, TV e mídias; eventos institucionais (artísticos, culturais e esportivos)", unidade: "Por item", pontos: 0.1 },
+                { id: 53, saber: "Edição, organização, revisão, tradução e avaliação/parecer em publicações institucionais, bem como avaliação do projeto em si (critérios de relevância, execução, aspectos formais, metodológicos e teóricos)", unidade: "Por livro/periódico (evento)", pontos: 1 },
+                { id: 54, saber: "Liderança ou vice-liderança de grupo de pesquisa registrado", unidade: "Por grupo de pesquisa", pontos: 2.5 },
+                { id: 55, saber: "Atuação de servidor como avaliador em eventos acadêmicos, científicos, culturais, esportivos e técnicos envolvendo a análise crítica, avaliação e emissão de pareceres sobre trabalhos, projetos ou apresentações realizadas", unidade: "Por evento", pontos: 1 },
+                { id: 56, saber: "Atividade de avaliação do projeto de ensino e/ou pesquisa e/ou extensão e/ou inovação, verificando se o mesmo foi submetido de forma adequada e de acordo com as normas", unidade: "Por projeto", pontos: 1 },
+                { id: 57, saber: "Participação como coordenador de implantação de unidades de ensino", unidade: "Por unidade de ensino", pontos: 2.5 },
+                { id: 58, saber: "Participação como coordenador em projetos de desenvolvimento institucional e/ou ensino e/ou pesquisa e/ou extensão e/ou inovação e/ou assistência, na própria instituição ou em parceria com outras instituições", unidade: "Por projeto", pontos: 2.5 },
+                { id: 59, saber: "Participação como mediador, palestrante, apresentador ou artista em congresso, simpósio, conferência, colóquio, mesa redonda, workshop, seminário, debate, oficina, jornada, mostra, feira, minicursos, eventos científicos, técnico, esportivos, sociais, artísticos, culturais, sindicais e filantrópicos.", unidade: "Por evento", pontos: 1 },
+                { id: 60, saber: "Participação como membro de equipe de implantação de unidades de ensino.", unidade: "Por unidade de ensino implantada", pontos: 1 },
+                { id: 61, saber: "Participação como ouvinte ou assistente em congresso, simpósio, fórum, conferência, colóquio, mesa redonda, workshop, seminário, mostra, feira, minicursos, eventos científicos, técnico, esportivos, sociais, artísticos, culturais, sindicais e filantrópicos.", unidade: "Por evento", pontos: 0.125 },
+                { id: 62, saber: "Participação em comissão de elaboração/reformulaçã o de projetos pedagógicos de cursos técnicos integrados ao ensino médio, técnicos concomitantes ou subsequentes, graduação ou pós-graduação cursos de formação inicial e continuada (FIC)", unidade: "Por projeto", pontos: 0.5 },
+                { id: 63, saber: "Participação em conselhos editoriais", unidade: "Por livro/periódico (evento)", pontos: 2.5 },
+                { id: 64, saber: "Coordenação de elaboração/reformulaçã de projetos pedagógicos de cursos técnicos integrados ao ensino médio, técnicos concomitantes ou subsequentes, graduação ou pós-graduação", unidade: "Por projeto", pontos: 1 },
+                { id: 65, saber: "Participação em grupo de pesquisa registrado", unidade: "Por projeto", pontos: 1 },
+                { id: 66, saber: "Participação em projeto de implantação/implementação de ambientes de ensino/aprendizagem, laboratórios, oficinas, estúdios, alas ou áreas para práticas esportivas, sociais, artísticos e culturais.", unidade: "Por projeto", pontos: 1 },
+                { id: 67, saber: "Participação em projetos de desenvolvimento institucional e/ou ensino e/ou pesquisa e/ou extensão e/ou inovação e/ou assistência, na própria instituição ou em parceria com outras instituições.", unidade: "Por projeto", pontos: 1 },
+                { id: 68, saber: "Participação na organização de congresso, simpósio, conferência, colóquio, mesa redonda, workshop, seminário, mostra, feira, minicursos, eventos científicos, técnico, esportivos, sociais, artísticos, culturais, sindicais e filantrópicos.", unidade: "Por evento", pontos: 1.25 },
+                { id: 69, saber: "Participação no desenvolvimento de protótipos, depósitos e/ou registros de propriedade intelectual.", unidade: "Por projeto", pontos: 2.5 },
+                { id: 70, saber: "Prêmio de mérito profissional ou acadêmico, comendas, homenagens e menções honrosas", unidade: "Por premiação, comenda, homenagem e/ou menção honrosa", pontos: 3.125 },
+                { id: 71, saber: "Produção de material audiovisual", unidade: "Por Projeto", pontos: 1 },
+                { id: 72, saber: "Publicação de artigos, trabalho completo e capítulo de livro (com ISBN e Conselho Editorial)", unidade: "Por publicação (evento)", pontos: 1.5 },
+                { id: 73, saber: "Publicação de livro (com ISBN e Conselho Editorial)", unidade: "Por publicação (evento)", pontos: 2.5 },
+                { id: 74, saber: "Avaliador de curso pelo INEP ou pelo MEC", unidade: "Por avaliação", pontos: 2.5 },
+                { id: 75, saber: "Elaboração, revisão e/ou correção de provas de exame de seleção, vestibular ou concursos", unidade: "Por edital", pontos: 1 },
+                { id: 76, saber: "Participação como jurado na área de atuação", unidade: "Por evento", pontos: 0.5 },
+                { id: 77, saber: "Participação como orientador das monitorias de disciplinas e nas unidades de produção e laboratórios.", unidade: "Por orientação", pontos: 0.5 },
+                { id: 78, saber: "Participação como orientador de bolsistas de apoio técnico.", unidade: "Por orientação", pontos: 0.5 },
+                { id: 79, saber: "Participação como orientador/supervisor de estágios supervisionados.", unidade: "Por orientação/supervisão", pontos: 0.5 },
+                { id: 80, saber: "Participação como preceptor em residências acadêmicas", unidade: "Por precepção", pontos: 1 },
+                { id: 81, saber: "Participação no apoio a atividades de preceptoria em residências médica e multiprofissional", unidade: "Por declaração semestral", pontos: 0.1 },
+                { id: 82, saber: "Participação em situações de surtos, epidemias e pandemias", unidade: "Tempo (mês)", pontos: 0.5 },
+                { id: 83, saber: "Participação em políticas, programas e ações de promoção da saúde.", unidade: "Por programa, plano, projeto e/ou ação.", pontos: 1.5 },
+                { id: 84, saber: "Acolhimento em Saúde Mental, Atendimento em necessidades específicas e Humanização do Atendimento.", unidade: "Atendimento/encaminhamento e/ou participação em programa, plano, projeto e/ou ação de humanização.", pontos: 0.05 },
+                { id: 85, saber: "Atuação em áreas hospitalares críticas e semicríticas", unidade: "Tempo (mês)", pontos: 0.05 },
+                { id: 86, saber: "Atuação em atividades de campo e saídas pedagógicas, acompanhando estudantes, em conjunto com o corpo docente em atividades como: apoio à coleta de dados, observação e análise de comunidades, espaços urbanos, edificações ou fenômenos sociais para análise e registro, levantamentos e mapeamentos, estudos de caso em campo, práticas agrícolas, florestais, geológicas, geográficas e biológicas, projetos de extensão comunitária, visitas técnicas e guiadas a indústrias, laboratórios avançados, centros de pesquisa, obras em andamento, museus, teatros, exposições literárias ou eventos técnicos para expor os alunos a diferentes realidades profissionais e tecnologias.", unidade: "Por atividade de campo ou saída pedagógica", pontos: 0.25 },
+                { id: 87, saber: "Participação em políticas, programas e ações de promoção da inclusão, de gênero, da diversidade, de questões étnico-raciais, indígenas, pessoas com necessidades específicas e direitos humanos.", unidade: "Por programa, plano, projeto e/ou ação.", pontos: 1.5 },
+                { id: 88, saber: "Atuação em atividades de execução / operação, desenvolvimento, colaboração ou treinamento nos sistemas estruturadores do Governo Federal", unidade: "Tempo (mês)", pontos: 0.5 },
+                { id: 89, saber: "Produção, tradução e interpretação de materiais acessíveis", unidade: "Por material produzido, interpretado ou traduzido", pontos: 1 }
+            ]
 
             // Data for RSC levels and their requirements
             const rscLevels = [
