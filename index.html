@@ -431,5 +431,27 @@
         });
     </script>
 </body>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCcfg7b3PLouLFoAvWKc__-0zO_gjuiPAI",
+    authDomain: "calculadora-rsc.firebaseapp.com",
+    projectId: "calculadora-rsc",
+    storageBucket: "calculadora-rsc.firebasestorage.app",
+    messagingSenderId: "583298757156",
+    appId: "1:583298757156:web:eecbe66f7eb980fe4b9eb1",
+    measurementId: "G-0CZ1T17W7C"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </html>
